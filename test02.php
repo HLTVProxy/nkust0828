@@ -21,22 +21,24 @@
         return $fact;
     }
     
-    // 輸出累加和累乘的結果
-    // $n = 10;
-    // for ($i = 1; $i <=20 ; $i++){
-    //     echo accu($i) . "<br>";
-    //     echo fact($i) . "<br>";
-    // }
+    /*
+    輸出累加和累乘的結果
+    $n = 10;
+    for ($i = 1; $i <=20 ; $i++){
+        echo accu($i) . "<br>";
+        echo fact($i) . "<br>";
+    }
+    */
     
 
     //製作表單欄位
     function genRow($r1, $r2, $r3){
         echo "<tr bgcolor=ff9999>\n<th>$r1</th>\n<th>$r2</th>\n<th>$r3</th>\n";
     }
-    function genData($r1, $r2, $r3){
-        echo "<tr bgcolor=ff9999>\n<th>$r1</th>\n<th>$r2</th>\n<th>$r3</th>\n";
+    function genData($color, $r1, $r2, $r3){
+        echo "<tr bgcolor=$color>\n<th>$r1</th>\n<th>$r2</th>\n<th>$r3</th>\n";
     }
-    //做
+    //做顏色變化
     function twoFold($i){
         if($i % 2 == 0)
             return "#80d4ff";
@@ -49,9 +51,9 @@
     function form($n){
         echo "<table border=1 width = 10%>\n";
         //echo "<tr bgcolor=ff9999>\n<th>數字</th>\n<th>累加</th>\n<th>累乘</th>\n";
-        genRow("數字", "累加", "累乘");
+        genRow("數字", "累加", "累乘"); 
         for($i = 1; $i <= $n; $i++) {
-            genData(colorChange($i), $i, accu(i), fact(i));
+            genData(twoFold($i), $i, accu($i), fact($i));
         }
         // "<td>" . $i . 
         // "</td><td>" . accu($i) . 
@@ -59,12 +61,10 @@
         // "</td></tr>\n";
         echo "</table>";
     }	
-    
-    
-    
+
+
     $n = 10; //設定數字
     echo form($n); //呼叫表格函式
-    
 
     // accu($n);
     // fact($n);
