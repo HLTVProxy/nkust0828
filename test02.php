@@ -22,7 +22,7 @@
     }
     
     /*
-    輸出累加和累乘的結果
+    輸出累加和累乘的結果是否正確
     $n = 10;
     for ($i = 1; $i <=20 ; $i++){
         echo accu($i) . "<br>";
@@ -30,7 +30,6 @@
     }
     */
     
-
     //製作表單欄位
     function genRow($r1, $r2, $r3){
         echo "<tr bgcolor=ff9999>\n<th>$r1</th>\n<th>$r2</th>\n<th>$r3</th>\n";
@@ -53,7 +52,7 @@
         //echo "<tr bgcolor=ff9999>\n<th>數字</th>\n<th>累加</th>\n<th>累乘</th>\n";
         genRow("數字", "累加", "累乘"); 
         for($i = 1; $i <= $n; $i++) {
-            genData(twoFold($i), $i, accu($i), fact($i));
+            genData(twoFold($i), $i, accu($i), fact($i));//Function的retrun值可以當作Function的參數值
         }
         // "<td>" . $i . 
         // "</td><td>" . accu($i) . 
@@ -62,7 +61,7 @@
         echo "</table>";
     }	
 
-
+    //主程式開始
     $n = 10; //設定數字
     echo form($n); //呼叫表格函式
 

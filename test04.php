@@ -3,24 +3,25 @@
     //結合(關聯式)陣列用法
     //以下建立一個關聯式陣列的一般陣列
     $rate_list = array (
-		"USD" => array("name" => "美金",	"id" => "USD", "rate" => 28.95),
-		"HKD" => array("name" => "港幣",	"id" => "HKD", "rate" => 3.631),
-		"GBP" => array("name" => "英鎊",	"id" => "GBP", "rate" => 37.76),
-		"AUD" => array("name" => "澳幣",	"id" => "AUD", "rate" => 21.07),
-		"CAD" => array("name" => "加拿大幣",	"id" => "CAD", "rate" => 21.94),
-		"SGD" => array("name" => "新加坡幣",	"id" => "SGD", "rate" => 20.97)
+		array("name" => "美金",	"id" => "USD", "rate" => 28.95),
+		array("name" => "港幣",	"id" => "HKD", "rate" => 3.631),
+		array("name" => "英鎊",	"id" => "GBP", "rate" => 37.76),
+		array("name" => "澳幣",	"id" => "AUD", "rate" => 21.07),
+		array("name" => "加拿大幣",	"id" => "CAD", "rate" => 21.94),
+		array("name" => "新加坡幣",	"id" => "SGD", "rate" => 20.97)
 	);
 ?>
 
 <form action="test04.php" method="POST">
     <label for="money">新台幣：</label>
     <input type="text" id="money" name="money" value="50000">元<br>
+
     <label>要兌換的貨幣：</label>
     <select name="dollar" autofocus>
     <br>
 <?php
 
-    //使用傳統迴圈死出陣列中所有內容，跟索引數目有關使用
+    //使用傳統迴圈生出陣列中所有內容，跟索引數目有關使用
     // for ($i = 0 ; $i < count($rate_list); $i++){
     //     echo $rate_list[$i]["name"] . " " .
     //         $rate_list[$i]["id"] . " " .

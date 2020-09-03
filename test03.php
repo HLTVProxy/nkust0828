@@ -34,51 +34,36 @@
 
   
 
-            $tags = "<iframe width='560' height='315' src='https://www.youtube.com/embed/^^^^\' frameborder=\'0\' allow=\'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen></iframe>";
+        $tags = "<iframe width='560' height='315' src='https://www.youtube.com/embed/^^^^\' frameborder=\'0\' allow=\'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen></iframe>";
 
-            //下面要用來處理影片的播放器，用內嵌的方式，但是要置換影片id
-            $v = $_GET["v"]; //從網址取得v
-            $title = $_GET["title"];
-            if ($v == NULL) {
-                $v = "ED4QXd5xAco";
-                $title = "網路直播 PTS Live 公共電視";
-            }
+        //下面要用來處理影片的播放器，用內嵌的方式，但是要置換影片id
+        $v = $_GET["v"]; //從網址取得v
+        $title = $_GET["title"]; //從網址取得影片標題
+        //因為一開始打開沒有東西，所以要設定預設值
+        if ($v == NULL) {
+            $v = "ED4QXd5xAco";
+            $title = "網路直播 PTS Live 公共電視";
+        }
             
 
-            echo "<h2>" . $title . "</h2>";
-            echo str_replace("^^^^", $v, $tags);
-            echo "<br><hr>";
-
-            foreach($data as $tv){
-                echo "<button>" .
-                "<a href= 'test03.php?v=" .
+        echo "<h2>" . $title . "</h2>";
+        echo str_replace("^^^^", $v, $tags);
+        echo "<br><hr>";
+        //設定選台器按鈕
+        foreach($data as $tv){
+            echo "<button>" .
+                "<a href= 'test03.php?v=" . //把影片ID置換成想看的台
                 $tv[2] .
                 "&title=" . $tv[1] .
                 "'>" .
                 $tv[0] . 
                 "</a></button>";
             }
-
-            // for($n = 0; $n < count($data); $n++){
-            //     echo '<button name = " >' . $data[$n][0] 
-            //     . 'value'
-            //     . "</button>";
-            // }
-        
-
-        // echo "<button>" . $data[0][0] . "</button>";
-        // echo "<button>" . $data[1][0] . "</button>";
-        // echo "<button>" . $data[2][0] . "</button>";
-        // echo "<button>" . $data[3][0] . "</button>";
-        // echo "<button>" . $data[4][0] . "</button>";
-        // echo "<button>" . $data[5][0] . "</button>";
         
     ?>
     <hr>
     <h1>這是各種亂象的新聞台</h1>
     <hr>
-
-    <iframe width='560' height='315' src="https://www.youtube.com/embed/ED4QXd5xAco" frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
 
 </body>
 </html>
